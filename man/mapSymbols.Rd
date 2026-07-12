@@ -101,7 +101,7 @@ makeSymbolsSize(
 )
 }
 \arguments{
-\item{shape}{the desired shape of the symbol, See \link[leaflegend]{availableShapes}}
+\item{shape}{the desired shape of the symbol, See \link{availableShapes}}
 
 \item{width}{in pixels}
 

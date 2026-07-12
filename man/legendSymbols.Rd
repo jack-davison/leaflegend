@@ -86,7 +86,7 @@ addLegendSymbol(
 \arguments{
 \item{map}{a map widget object created from 'leaflet'}
 
-\item{pal}{the color palette function, generated from \link[leaflet]{colorNumeric}}
+\item{pal}{the color palette function, generated from \link[leaflet:colorNumeric]{colorNumeric}}
 
 \item{values}{the values used to generate sizes and if colorValues is not specified and
 pal is given, then the values are used to generate  colors from the palette
@@ -96,7 +96,7 @@ function}
 
 \item{labelStyle}{character string of style argument for HTML text}
 
-\item{shape}{the desired shape of the symbol, See \link[leaflegend]{availableShapes}}
+\item{shape}{the desired shape of the symbol, See \link{availableShapes}}
 
 \item{orientation}{stack the legend items vertically or horizontally}
 
@@ -141,11 +141,11 @@ spatial data frames from the \pkg{sf} package.}
 
 \item{...}{arguments to pass to
 
-\link[leaflet]{addControl} for addLegendSize
+\link[leaflet:addControl]{addControl} for addLegendSize
 
-\link[base]{pretty} for sizeBreaks
+\link[base:pretty]{pretty} for sizeBreaks
 
-\link[leaflegend]{makeSymbol} for makeSymbolsSize}
+\link{makeSymbol} for makeSymbolsSize}
 
 \item{width}{width in pixels of the lines}
 
@@ -156,7 +156,7 @@ spatial data frames from the \pkg{sf} package.}
 \item{label}{a character vector of labels to display at the center of each symbol}
 }
 \value{
-an object from \link[leaflet]{addControl}
+an object from \link[leaflet:addControl]{addControl}
 }
 \description{
 Add a legend for the sizing of symbols or the width of lines

@@ -39,10 +39,10 @@ addLegendImage(
 
 \item{className}{extra CSS class to append to the control, space separated}
 
-\item{...}{arguments to pass to \link[leaflet]{addControl}}
+\item{...}{arguments to pass to \link[leaflet:addControl]{addControl}}
 }
 \value{
-an object from \link[leaflet]{addControl}
+an object from \link[leaflet:addControl]{addControl}
 }
 \description{
 Creates a legend with images that are embedded into a 'leaflet' map so that

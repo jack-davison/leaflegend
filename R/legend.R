@@ -48,11 +48,11 @@
 #'
 #' @param ...
 #'
-#' arguments to pass to \link[leaflet]{addControl}
+#' arguments to pass to [addControl][leaflet::addControl]
 #'
 #' @return
 #'
-#' an object from \link[leaflet]{addControl}
+#' an object from [addControl][leaflet::addControl]
 #'
 #' @export
 #'
@@ -177,7 +177,7 @@ addLegendImage <- function(
 #'
 #' @param shape
 #'
-#' the desired shape of the symbol, See \link[leaflegend]{availableShapes}
+#' the desired shape of the symbol, See [availableShapes][leaflegend::availableShapes]
 #'
 #' @param width
 #'
@@ -1116,17 +1116,17 @@ makeSymbolIcons <- function(shape,
 #'
 #' @param lng
 #'
-#' a numeric vector of longitudes, or a one-sided formula of the form \code{~x}
-#' where \code{x} is a variable in \code{data}; by default
+#' a numeric vector of longitudes, or a one-sided formula of the form `~x`
+#' where `x` is a variable in `data`; by default
 #' (if not explicitly provided), it will be automatically inferred from data
-#' by looking for a column named \code{lng}, \code{long}, or \code{longitude}
+#' by looking for a column named `lng`, `long`, or `longitude`
 #' (case-insensitively)
 #'
 #' @param lat
 #'
-#' a vector of latitudes or a formula (similar to the \code{lng} argument; the
-#' names \code{lat} and \code{latitude} are used when guessing the latitude
-#' column from \code{data})
+#' a vector of latitudes or a formula (similar to the `lng` argument; the
+#' names `lat` and `latitude` are used when guessing the latitude
+#' column from `data`)
 #'
 #' @param values
 #'
@@ -1135,7 +1135,7 @@ makeSymbolIcons <- function(shape,
 #'
 #' @param shape
 #'
-#' the desired shape of the symbol, See \link[leaflegend]{availableShapes}
+#' the desired shape of the symbol, See [availableShapes][leaflegend::availableShapes]
 #'
 #' @param color
 #'
@@ -1176,12 +1176,12 @@ makeSymbolIcons <- function(shape,
 #' @param data
 #'
 #' the data object from which the argument values are derived; by default, it
-#' is the \code{data} object provided to \code{leaflet()} initially, but can be
+#' is the `data` object provided to `leaflet()` initially, but can be
 #' overridden
 #'
 #' @param ...
 #'
-#' arguments to be passed to \link[leaflet]{addMarkers}
+#' arguments to be passed to [addMarkers][leaflet::addMarkers]
 #'
 #' @export
 #'
@@ -1290,7 +1290,7 @@ addSymbolsSize <- function(
 #'
 #' @param pal
 #'
-#' the color palette function, generated from \link[leaflet]{colorNumeric}
+#' the color palette function, generated from [colorNumeric][leaflet::colorNumeric]
 #'
 #' @param values
 #'
@@ -1308,7 +1308,7 @@ addSymbolsSize <- function(
 #'
 #' @param shape
 #'
-#' the desired shape of the symbol, See \link[leaflegend]{availableShapes}
+#' the desired shape of the symbol, See [availableShapes][leaflegend::availableShapes]
 #'
 #' @param orientation
 #'
@@ -1368,21 +1368,21 @@ addSymbolsSize <- function(
 #'
 #' @param data a data object. Currently supported objects are matrices, data
 #'   frames, spatial objects from the \pkg{sp} package
-#'   (\code{SpatialPoints}, \code{SpatialPointsDataFrame}, \code{Polygon},
-#'   \code{Polygons}, \code{SpatialPolygons}, \code{SpatialPolygonsDataFrame},
-#'   \code{Line}, \code{Lines}, \code{SpatialLines}, and
-#'   \code{SpatialLinesDataFrame}), and
+#'   (`SpatialPoints`, `SpatialPointsDataFrame`, `Polygon`,
+#'   `Polygons`, `SpatialPolygons`, `SpatialPolygonsDataFrame`,
+#'   `Line`, `Lines`, `SpatialLines`, and
+#'   `SpatialLinesDataFrame`), and
 #'   spatial data frames from the \pkg{sf} package.
 #'
 #' @param ...
 #'
-#' arguments to pass to \link[leaflet]{addControl}
+#' arguments to pass to [addControl][leaflet::addControl]
 #'
 #' @export
 #'
 #' @return
 #'
-#' an object from \link[leaflet]{addControl}
+#' an object from [addControl][leaflet::addControl]
 #'
 #' @name addLeafLegends
 #'
@@ -1854,17 +1854,17 @@ addLegendQuantile <- function(map,
 #'
 #' @param labelCutpoints
 #'
-#' if \code{TRUE}, labels are placed at bin boundaries (cutpoints) with tick
+#' if `TRUE`, labels are placed at bin boundaries (cutpoints) with tick
 #' marks instead of beside each symbol. Only supported for vertical
 #' orientation.
 #'
 #' @param tickLength
 #'
-#' length of tick marks in pixels, used when \code{labelCutpoints = TRUE}
+#' length of tick marks in pixels, used when `labelCutpoints = TRUE`
 #'
 #' @param tickWidth
 #'
-#' stroke width of tick marks in pixels, used when \code{labelCutpoints = TRUE}
+#' stroke width of tick marks in pixels, used when `labelCutpoints = TRUE`
 #'
 #' @export
 #'
@@ -2084,7 +2084,7 @@ addNa <- function(hasNa, htmlElements, shape, labels, colors,
 #'
 #' @param pal
 #'
-#' the color palette function, generated from \link[leaflet]{colorNumeric}
+#' the color palette function, generated from [colorNumeric][leaflet::colorNumeric]
 #'
 #' @param values
 #'
@@ -2098,7 +2098,7 @@ addNa <- function(hasNa, htmlElements, shape, labels, colors,
 #'
 #' @param shape
 #'
-#' the desired shape of the symbol, See \link[leaflegend]{availableShapes}
+#' the desired shape of the symbol, See [availableShapes][leaflegend::availableShapes]
 #'
 #' @param orientation
 #'
@@ -2131,12 +2131,12 @@ addNa <- function(hasNa, htmlElements, shape, labels, colors,
 #' @param minSize
 #'
 #' minimum size in pixels of a symbol; values that would scale below this are
-#' clamped to \code{minSize}; \code{baseSize} must be greater than \code{minSize}
+#' clamped to `minSize`; `baseSize` must be greater than `minSize`
 #'
 #' @param maxSize
 #'
 #' maximum size in pixels of a symbol; values that would scale above this are
-#' clamped to \code{maxSize}; \code{baseSize} must be less than \code{maxSize}
+#' clamped to `maxSize`; `baseSize` must be less than `maxSize`
 #'
 #' @param color
 #'
@@ -2164,30 +2164,30 @@ addNa <- function(hasNa, htmlElements, shape, labels, colors,
 #'
 #' @param stacked
 #'
-#' If \code{TRUE}, symbols are overlayed onto each other for a more compact
+#' If `TRUE`, symbols are overlayed onto each other for a more compact
 #' size legend
 #'
 #' @param data a data object. Currently supported objects are matrices, data
 #'   frames, spatial objects from the \pkg{sp} package
-#'   (\code{SpatialPoints}, \code{SpatialPointsDataFrame}, \code{Polygon},
-#'   \code{Polygons}, \code{SpatialPolygons}, \code{SpatialPolygonsDataFrame},
-#'   \code{Line}, \code{Lines}, \code{SpatialLines}, and
-#'   \code{SpatialLinesDataFrame}), and
+#'   (`SpatialPoints`, `SpatialPointsDataFrame`, `Polygon`,
+#'   `Polygons`, `SpatialPolygons`, `SpatialPolygonsDataFrame`,
+#'   `Line`, `Lines`, `SpatialLines`, and
+#'   `SpatialLinesDataFrame`), and
 #'   spatial data frames from the \pkg{sf} package.
 #'
 #' @param ...
 #'
 #' arguments to pass to
 #'
-#' \link[leaflet]{addControl} for addLegendSize
+#' [addControl][leaflet::addControl] for addLegendSize
 #'
-#' \link[base]{pretty} for sizeBreaks
+#' [pretty][base::pretty] for sizeBreaks
 #'
-#' \link[leaflegend]{makeSymbol} for makeSymbolsSize
+#' [makeSymbol][leaflegend::makeSymbol] for makeSymbolsSize
 #'
 #' @return
 #'
-#' an object from \link[leaflet]{addControl}
+#' an object from [addControl][leaflet::addControl]
 #'
 #' @export
 #'
@@ -2440,18 +2440,18 @@ addLegendSize <- function(map,
 #' @param minSize
 #'
 #' minimum size in pixels of a symbol; values that would scale below this are
-#' clamped to \code{minSize}; \code{baseSize} must be greater than \code{minSize}
+#' clamped to `minSize`; `baseSize` must be greater than `minSize`
 #'
 #' @param maxSize
 #'
 #' maximum size in pixels of a symbol; values that would scale above this are
-#' clamped to \code{maxSize}; \code{baseSize} must be less than \code{maxSize}
+#' clamped to `maxSize`; `baseSize` must be less than `maxSize`
 #'
 #' @param centerPoint
 #'
 #' the value used as the center of the scaling; defaults to the mean of
-#' \code{values}; the symbol for \code{centerPoint} will be exactly
-#' \code{baseSize} pixels
+#' `values`; the symbol for `centerPoint` will be exactly
+#' `baseSize` pixels
 #'
 #' @export
 #'
@@ -2492,7 +2492,7 @@ sizeNumeric <- function(values, baseSize, minSize = NULL, maxSize = NULL,
 #'
 #' @param ...
 #'
-#' arguments to pass to \code{pretty}
+#' arguments to pass to `pretty`
 #'
 #' @export
 #'
@@ -2695,7 +2695,7 @@ addLegendSymbol <- function(map,
 #'
 #' @param iconSet
 #'
-#' a named list from \link[leaflet]{awesomeIconList}, the names will be the
+#' a named list from [awesomeIconList][leaflet::awesomeIconList], the names will be the
 #' labels in the legend
 #'
 #' @param title
@@ -2724,11 +2724,11 @@ addLegendSymbol <- function(map,
 #'
 #' @param ...
 #'
-#' arguments to pass to \link[leaflet]{addControl}
+#' arguments to pass to [addControl][leaflet::addControl]
 #'
 #' @return
 #'
-#' an object from \link[leaflet]{addControl}
+#' an object from [addControl][leaflet::addControl]
 #'
 #' @export
 #'

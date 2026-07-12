@@ -19,7 +19,7 @@ addLegendAwesomeIcon(
 \arguments{
 \item{map}{a map widget object created from 'leaflet'}
 
-\item{iconSet}{a named list from \link[leaflet]{awesomeIconList}, the names will be the
+\item{iconSet}{a named list from \link[leaflet:awesomeIconList]{awesomeIconList}, the names will be the
 labels in the legend}
 
 \item{title}{the legend title, pass in HTML to style}
@@ -34,10 +34,10 @@ labels in the legend}
 
 \item{className}{extra CSS class to append to the control, space separated}
 
-\item{...}{arguments to pass to \link[leaflet]{addControl}}
+\item{...}{arguments to pass to \link[leaflet:addControl]{addControl}}
 }
 \value{
-an object from \link[leaflet]{addControl}
+an object from \link[leaflet:addControl]{addControl}
 }
 \description{
 Add a legend with Awesome Icons

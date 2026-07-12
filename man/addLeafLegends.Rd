@@ -108,13 +108,13 @@ addLegendFactor(
 \arguments{
 \item{map}{a map widget object created from 'leaflet'}
 
-\item{pal}{the color palette function, generated from \link[leaflet]{colorNumeric}}
+\item{pal}{the color palette function, generated from \link[leaflet:colorNumeric]{colorNumeric}}
 
 \item{values}{the values used to generate colors from the palette function}
 
 \item{title}{the legend title, pass in HTML to style}
 
-\item{shape}{the desired shape of the symbol, See \link[leaflegend]{availableShapes}}
+\item{shape}{the desired shape of the symbol, See \link{availableShapes}}
 
 \item{orientation}{stack the legend items vertically or horizontally}
 
@@ -154,7 +154,7 @@ frames, spatial objects from the \pkg{sp} package
 \code{SpatialLinesDataFrame}), and
 spatial data frames from the \pkg{sf} package.}
 
-\item{...}{arguments to pass to \link[leaflet]{addControl}}
+\item{...}{arguments to pass to \link[leaflet:addControl]{addControl}}
 
 \item{opacity}{opacity of the legend items}
 
@@ -165,7 +165,7 @@ marks instead of beside each symbol. Only supported for vertical
 orientation.}
 }
 \value{
-an object from \link[leaflet]{addControl}
+an object from \link[leaflet:addControl]{addControl}
 }
 \description{
 Functions for more control over the styling of 'leaflet' legends.
