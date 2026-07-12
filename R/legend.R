@@ -503,7 +503,7 @@ pchSvg <- function(
   fillOpacity,
   ...
 ) {
-  hexPercentOffset <- .8
+  hexPercentOffset <- 0.8
   strokeWidth <- 1
   if ('stroke-width' %in% names(list(...))) {
     strokeWidth <- list(...)[['stroke-width']]
@@ -1188,24 +1188,24 @@ makeLegendSymbol <- function(
 }
 
 drawPlus <- function(width, height, offset = 0) {
-  x <- width * c(rep(c(.4, 0, .4, .6, 1, .6), each = 2), .4) + offset
-  y <- height * c(0, rep(c(.4, .6, 1, .6, .4, 0), each = 2)) + offset
+  x <- width * c(rep(c(0.4, 0, 0.4, 0.6, 1, 0.6), each = 2), 0.4) + offset
+  y <- height * c(0, rep(c(0.4, 0.6, 1, 0.6, 0.4, 0), each = 2)) + offset
   paste(x, y, sep = ',', collapse = ' ')
 }
 
 drawDiamond <- function(width, height, offset = 0) {
-  x <- width * c(.5, 0, .5, 1, .5) + offset
-  y <- height * c(0, .5, 1, .5, 0) + offset
+  x <- width * c(0.5, 0, 0.5, 1, 0.5) + offset
+  y <- height * c(0, 0.5, 1, 0.5, 0) + offset
   paste(x, y, sep = ',', collapse = ' ')
 }
 
 drawCross <- function(width, height, offset = 0) {
   a <- sqrt(2) / 10
   x <- width *
-    c(a, 0, .5 - a, 0, a, .5, 1 - a, 1, .5 + a, 1, 1 - a, .5, a) +
+    c(a, 0, 0.5 - a, 0, a, 0.5, 1 - a, 1, 0.5 + a, 1, 1 - a, 0.5, a) +
     offset
   y <- height *
-    c(0, a, .5, 1 - a, 1, .5 + a, 1, 1 - a, .5, a, 0, .5 - a, 0) +
+    c(0, a, 0.5, 1 - a, 1, 0.5 + a, 1, 1 - a, 0.5, a, 0, 0.5 - a, 0) +
     offset
   paste(x, y, sep = ',', collapse = ' ')
 }
@@ -1435,7 +1435,7 @@ addSymbols <- function(
   }
   if (!missing(values)) {
     values <- as.factor(parseValues(values, data))
-    if (length(levels(values)) > length(shape)) {
+    if (nlevels(values) > length(shape)) {
       stop('values has more factor levels than shape. Maximum levels is 7')
     }
     shape <- shape[values]
@@ -1853,7 +1853,7 @@ addLegendNumeric <- function(
   if (breaks[length(breaks)] > rng[2]) {
     breaks[length(breaks)] <- rng[2]
   }
-  hasNa <- any(is.na(values))
+  hasNa <- anyNA(values)
   orientation <- match.arg(orientation)
   isVertical <- as.integer(orientation == 'vertical')
   isHorizontal <- as.integer(orientation == 'horizontal')
@@ -1917,11 +1917,11 @@ addLegendNumeric <- function(
     ticks = ticks,
     tickText = tickText,
     labelStyle = labelStyle,
-    marginLeft = ifelse(hasHorizontalTickLabels, nchar(labels[1]) * .25, 0),
+    marginLeft = ifelse(hasHorizontalTickLabels, nchar(labels[1]) * 0.25, 0),
     marginRight = ifelse(
       isVertical,
-      max(nchar(labels)) * .5,
-      ifelse(hasHorizontalTickLabels, nchar(labels[length(labels)]) * .25, 0)
+      max(nchar(labels)) * 0.5,
+      ifelse(hasHorizontalTickLabels, nchar(labels[length(labels)]) * 0.25, 0)
     ),
     marginBottom = ifelse(isHorizontal, 1, 0)
   )
@@ -2063,7 +2063,7 @@ makeTickText <- function(labels, breaks, width, height, orientation) {
     )
   } else if (length(labels) > 2) {
     tickLocations <- breaks
-    halfWidthEm <- nchar(labels) * .25
+    halfWidthEm <- nchar(labels) * 0.25
     Map(
       htmltools::p,
       labels,
@@ -2228,7 +2228,7 @@ addLegendQuantile <- function(
     fillOpacity = fillOpacity,
     orientation = orientation,
     title = title,
-    hasNa = any(is.na(values)),
+    hasNa = anyNA(values),
     naLabel = naLabel,
     naColor = pal(NA)
   )
@@ -2309,7 +2309,7 @@ addLegendBin <- function(
       labelStyle = labelStyle,
       fillOpacity = fillOpacity,
       title = title,
-      hasNa = any(is.na(values)),
+      hasNa = anyNA(values),
       naLabel = naLabel,
       naColor = pal(NA)
     )
@@ -2331,7 +2331,7 @@ addLegendBin <- function(
       fillOpacity = fillOpacity,
       orientation = orientation,
       title = title,
-      hasNa = any(is.na(values)),
+      hasNa = anyNA(values),
       naLabel = naLabel,
       naColor = pal(NA)
     )
@@ -2371,7 +2371,7 @@ addLegendFactor <- function(
   stopifnot(width >= 0 && height >= 0)
   orientation <- match.arg(orientation)
   values <- parseValues(values = values, data = data)
-  hasNa <- any(is.na(values))
+  hasNa <- anyNA(values)
   values <- sort(unique(values))
   labels <- sprintf(' %s', values)
   colors <- pal(values)
@@ -2512,7 +2512,7 @@ makeLegendBinTicks <- function(
     ticks = ticks,
     tickText = tickText,
     labelStyle = labelStyle,
-    marginRight = max(nchar(tickLabels)) * .5,
+    marginRight = max(nchar(tickLabels)) * 0.5,
     marginBottom = 0
   )
   htmlElements <- addTitle(title = title, htmlElements = list(htmlElements))
@@ -2942,7 +2942,7 @@ addLegendSize <- function(
       ticks = ticks,
       tickText = tickText,
       labelStyle = labelStyle,
-      marginRight = .5 * max(nchar(labels)),
+      marginRight = 0.5 * max(nchar(labels)),
       marginBottom = 0
     )
     htmlElements <- htmltools::tagList(title, htmlElements = htmlElements)
@@ -3207,7 +3207,7 @@ addLegendSymbol <- function(
     shape <- availableShapes()[['default']]
   }
   values <- sort(unique(as.factor(parseValues(values, data))))
-  if (length(levels(values)) > length(shape)) {
+  if (nlevels(values) > length(shape)) {
     stop('values has more factor levels than shape. Maximum levels is 7')
   }
   shape <- shape[values]

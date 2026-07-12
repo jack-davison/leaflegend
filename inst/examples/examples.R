@@ -36,7 +36,7 @@ symbols <- Map(f = makeSymbol,
                ,fillColor = c('blue', 'red', 'green', 'yellow', 'orange', 'purple')
                ,color = 'black'
                ,opacity = 1
-               ,fillOpacity = .5
+               ,fillOpacity = 0.5
                ,height = 24
                ,width = 24
                ,'stroke-width' = 2)
@@ -81,7 +81,7 @@ leaflet() %>%
     height = 129,
     width = 18,
     #opacity = 1,
-    fillOpacity = .5
+    fillOpacity = 0.5
   ) %>%
   addLegend(pal = numPal, values = quakes$depth * 1000)
 x <- rnorm(nrow(quakes))
@@ -116,7 +116,7 @@ library(leaflegend)
 data(quakes)
 quakes1000 <- quakes[1:1000, ]
 quakes1000[['x']] <- 1:1000
-numPal <- colorNumeric('viridis', log10(c(.01, 1000)))
+numPal <- colorNumeric('viridis', log10(c(0.01, 1000)))
 leaflet(quakes1000) %>%
   addTiles() %>%
   addCircleMarkers(color = ~numPal(log10(x))) %>%
@@ -129,7 +129,7 @@ leaflet(quakes1000) %>%
     height = 129,
     width = 18,
     bins = 5,
-    fillOpacity = .5,
+    fillOpacity = 0.5,
     numberFormat = function(x) {
       prettyNum(x^10, format = "f", big.mark = ",", digits =
           3, scientific = FALSE)
@@ -153,7 +153,7 @@ leaflet(quakes1000) %>%
     height = 129,
     width = 18,
     bins = 5,
-    fillOpacity = .5,
+    fillOpacity = 0.5,
     numberFormat = function(x) {
       prettyNum(x^10, format = "f", big.mark = ",", digits =
           3, scientific = FALSE)
@@ -183,7 +183,7 @@ leaflet(quakes1000) %>%
     title = 'depth',
     tickLength = 10,
     tickWidth = 5,
-    fillOpacity = .5,
+    fillOpacity = 0.5,
     numberFormat = function(x) {
       prettyNum(x, format = "f", big.mark = ",", digits =
           3, scientific = FALSE)
@@ -203,7 +203,7 @@ leaflet(quakes1000) %>%
     tickLength = 10,
     labelStyle = 'font-size: 24px;',
     tickWidth = 5,
-    fillOpacity = .5,
+    fillOpacity = 0.5,
     numberFormat = function(x) {
       prettyNum(x, format = "f", big.mark = ",", digits =
           3, scientific = FALSE)
@@ -221,7 +221,7 @@ leaflet(quakes1000) %>%
     title = 'depth',
     tickLength = 10,
     tickWidth = 5,
-    fillOpacity = .5,
+    fillOpacity = 0.5,
     numberFormat = function(x) {
       prettyNum(x, format = "f", big.mark = ",", digits =
           3, scientific = FALSE)
@@ -241,7 +241,7 @@ leaflet(quakes1000) %>%
     title = 'depth',
     tickLength = 10,
     tickWidth = 5,
-    fillOpacity = .5,
+    fillOpacity = 0.5,
     numberFormat = function(x) {
       prettyNum(x, format = "f", big.mark = ",", digits =
           3, scientific = FALSE)
@@ -327,7 +327,7 @@ leaflet() %>%
     lng = ~ long,
     color = ~ factorPal(group),
     opacity = 1,
-    fillOpacity = .5,
+    fillOpacity = 0.5,
     weight = 1,
     popup = ~group
   ) %>%
@@ -339,7 +339,7 @@ leaflet() %>%
     shape = 'triangle',
     width = 30,
     height = 30,
-    opacity = .5
+    opacity = 0.5
   ) %>%
   addLegend(pal = factorPal,
             values = quakes$group,
@@ -376,7 +376,7 @@ symbols <- lapply(binPal(quakes$mag)
                   #,color = 'black'
                   #,fillColor = binPal(qua
                   ,opacity = 0
-                  ,fillOpacity = .5
+                  ,fillOpacity = 0.5
                   ,height = 24
                   ,width = 24
                   #,stroke = 'black'
@@ -400,7 +400,7 @@ leaflet() %>%
     title = 'addLegendBin',
     shape = 'triangle',
     opacity = 1,
-    fillOpacity = .2,
+    fillOpacity = 0.2,
     labelStyle = 'font-size: 18px; font-weight: bold;',
     orientation = 'vertical'
   ) %>%
@@ -596,7 +596,7 @@ leaflet(quakes) %>%
     shape = 'plus',
     color = ~numPal(10^(mag)),
     fillColor = ~numPal(10^(mag)),
-    opacity = .5,
+    opacity = 0.5,
     baseSize = 1) %>%
   addLegendSize(
     values = ~10^(mag),
@@ -605,8 +605,8 @@ leaflet(quakes) %>%
     baseSize = 1,
     shape = 'plus',
     orientation = 'horizontal',
-    opacity = .5,
-    fillOpacity = .3,
+    opacity = 0.5,
+    fillOpacity = 0.3,
     position = 'bottomleft',
     breaks = 5) %>%
   addLegendSize(
@@ -616,8 +616,8 @@ leaflet(quakes) %>%
     baseSize = 1,
     shape = 'plus',
     orientation = 'horizontal',
-    opacity = .5,
-    fillOpacity = .3,
+    opacity = 0.5,
+    fillOpacity = 0.3,
     position = 'bottomleft',
     breaks = stats::setNames(seq(500000, 2500000, 500000),
       c('Very Small', 'Small', 'Medium', 'Large', 'Very Large'))
@@ -629,8 +629,8 @@ leaflet(quakes) %>%
     baseSize = 1,
     shape = 'plus',
     orientation = 'vertical',
-    opacity = .5,
-    fillOpacity = .3,
+    opacity = 0.5,
+    fillOpacity = 0.3,
     position = 'bottomleft',
     breaks = stats::setNames(seq(500000, 2500000, 500000),
       c('Very Small', 'Small', 'Medium', 'Large', 'Very Large'))
@@ -894,7 +894,7 @@ symbols <- icons(
   iconUrl = 'http://leafletjs.com/examples/custom-icons/leaf-green.png',
   iconWidth = width,
   iconHeight = height)
-probs <- c(.2, .4, .6, .8)
+probs <- c(0.2, 0.4, 0.6, 0.8)
 leaflet(quakes) %>%
   addTiles() %>%
   addMarkers(icon = symbols,
@@ -928,7 +928,7 @@ symbols <- Map(f = makeSymbol,
   ,fillColor = c('blue', 'red', 'green', 'yellow', 'orange', 'purple')
   ,color = 'black'
     ,opacity = 1
-  ,fillOpacity = .5
+  ,fillOpacity = 0.5
   ,height = 24
   ,width = 24
   ,'stroke-width' = 2)
@@ -971,9 +971,9 @@ pchNames <- stats::setNames(seq(0L, 25L, 1L),
 defaultSize <- 20
 i <- 1:26
 pchSvg <- lapply(names(pchNames)[i], makePch, width = defaultSize,
-  color = 'black', `stroke-width` = 2, fillOpacity = .5)
+  color = 'black', `stroke-width` = 2, fillOpacity = 0.5)
 pchSvgI <- lapply(i-1, makePch, width = defaultSize,
-  color = 'black', `stroke-width` = 2, fillOpacity = .5)
+  color = 'black', `stroke-width` = 2, fillOpacity = 0.5)
 leaflet::leaflet(options = leaflet::leafletOptions(zoomControl = FALSE)) |>
   addLegendImage(images = pchSvg, labels =names(pchNames),
     width = defaultSize, height = defaultSize, position = 'topright') |>
@@ -1098,7 +1098,7 @@ leaflet(quakes) %>%
     shape = 'circle',
     color = ~numPal(depth),
     fillColor = ~numPal(depth),
-    opacity = .7,
+    opacity = 0.7,
     baseSize = baseSize,
     minSize = minSize
   ) %>%
@@ -1123,7 +1123,7 @@ leaflet(quakes) %>%
     shape = 'circle',
     color = ~numPal(depth),
     fillColor = ~numPal(depth),
-    opacity = .7,
+    opacity = 0.7,
     baseSize = baseSize,
     maxSize = maxSize
   ) %>%
@@ -1148,7 +1148,7 @@ leaflet(quakes) %>%
     shape = 'circle',
     color = ~numPal(depth),
     fillColor = ~numPal(depth),
-    opacity = .7,
+    opacity = 0.7,
     baseSize = baseSize,
     minSize = minSize,
     maxSize = maxSize
@@ -1171,7 +1171,7 @@ sizeSymbols <- makeSymbolsSize(
   shape = 'circle',
   color = numPal(quakes$depth),
   fillColor = numPal(quakes$depth),
-  opacity = .7,
+  opacity = 0.7,
   baseSize = baseSize,
   minSize = minSize
 )
@@ -1195,7 +1195,7 @@ sizeSymbols <- makeSymbolsSize(
   shape = 'circle',
   color = numPal(quakes$depth),
   fillColor = numPal(quakes$depth),
-  opacity = .7,
+  opacity = 0.7,
   baseSize = baseSize,
   maxSize = maxSize
 )
@@ -1219,7 +1219,7 @@ sizeSymbols <- makeSymbolsSize(
   shape = 'circle',
   color = numPal(quakes$depth),
   fillColor = numPal(quakes$depth),
-  opacity = .7,
+  opacity = 0.7,
   baseSize = baseSize,
   minSize = minSize,
   maxSize = maxSize
