@@ -1,3 +1,8 @@
+# leaflegend (development version)
+
+* Fixed `addLegendNumeric()` placing tick labels at the wrong position, relative
+to their value, in vertical orientation when manually specifying `bins`.
+
 # leaflegend 1.2.8
 
 * Intermediate ticks are now allowed for horizontal orientation in 

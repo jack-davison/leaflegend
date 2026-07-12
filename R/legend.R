@@ -1596,6 +1596,12 @@ addLegendNumeric <- function(map,
   if (decreasing) {
     breaks <- rev(breaks)
     offsets <- rev(offsets)
+  }
+  # makeTicks()/makeTickText() measure vertical positions from the bottom
+  # (tickLocation = height - break), so the standardized breaks need to be
+  # flipped whenever exactly one of isVertical/decreasing is true, to keep
+  # tick positions and their labels aligned with the actual data values.
+  if (xor(as.logical(isVertical), decreasing)) {
     stdBreaks <- (1 - (breaks - rng[1]) / diff(rng)) *
       (height * isVertical + width * isHorizontal)
   } else {
@@ -1609,9 +1615,6 @@ addLegendNumeric <- function(map,
   }
   if (is.null(labels)) {
     labels <- numberFormat(breaks)[i]
-  }
-  if (isVertical) {
-    labels <- rev(labels)
   }
   ticks <- makeTicks(breaks = stdBreaks[i], width = tickLength,
     height = height, strokeWidth = tickWidth, stroke = 'black', transform =
@@ -1647,10 +1650,8 @@ addLegendNumeric <- function(map,
 
 makeGradient <- function(breaks, pal, height, width, id, fillOpacity,
   orientation, shape) {
-  stops <- (breaks - min(breaks)) /
-    (max(breaks) - min(breaks))
-  colors <- pal(breaks)[order(stops)]
-  stops <- sort(stops)
+  stops <- seq(0, 1, length.out = length(breaks))
+  colors <- pal(breaks)
   offsets <- sprintf('%.03f%%', 100 * stops)
   curvePercent <- ifelse(shape == 'stadium', '10%', '0')
   if (orientation == 'vertical') {
