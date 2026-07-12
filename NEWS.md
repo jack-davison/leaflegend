@@ -1,7 +1,7 @@
 # leaflegend (development version)
 
 * Fixed `addLegendNumeric()` placing tick labels at the wrong position, relative
-to their value, in vertical orientation when manually specifying `bins`.
+to their value.
 
 # leaflegend 1.2.8
 
