@@ -1597,10 +1597,6 @@ addLegendNumeric <- function(map,
     breaks <- rev(breaks)
     offsets <- rev(offsets)
   }
-  # makeTicks()/makeTickText() measure vertical positions from the bottom
-  # (tickLocation = height - break), so the standardized breaks need to be
-  # flipped whenever exactly one of isVertical/decreasing is true, to keep
-  # tick positions and their labels aligned with the actual data values.
   if (xor(as.logical(isVertical), decreasing)) {
     stdBreaks <- (1 - (breaks - rng[1]) / diff(rng)) *
       (height * isVertical + width * isHorizontal)
@@ -2051,7 +2047,7 @@ makeLegendBinTicks <- function(bins, colors, shape, width, height, tickLength,
   htmlElements <- addNa(hasNa = hasNa, htmlElements = htmlElements,
     shape = shape, labels = naLabel, colors = naColor,
     labelStyle = labelStyle, height = width, width = width,
-    opacity = fillOpacity, fillOpacity = fillOpacity, strokeWidth = 0)  
+    opacity = fillOpacity, fillOpacity = fillOpacity, strokeWidth = 0)
   htmlElements
 }
 
@@ -2498,7 +2494,7 @@ sizeNumeric <- function(values, baseSize, minSize = NULL, maxSize = NULL,
 #' @export
 #'
 #' @rdname mapSymbols
-sizeBreaks <- function(values, breaks, baseSize, minSize = NULL, maxSize = NULL, 
+sizeBreaks <- function(values, breaks, baseSize, minSize = NULL, maxSize = NULL,
   ...) {
   stopifnot(baseSize > 0)
   if ( length(breaks) == 1 ) {
@@ -2572,7 +2568,7 @@ addLegendLine <- function(map,
                           ...) {
   shape <- 'rect'
   values <- parseValues(values = values, data = data)
-  sizes <- sizeBreaks(values, breaks, baseSize, minSize = minSize, 
+  sizes <- sizeBreaks(values, breaks, baseSize, minSize = minSize,
     maxSize = maxSize)
   if ( missing(color) ) {
     stopifnot( missing(color) & !missing(pal))
